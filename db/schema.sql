@@ -20,7 +20,9 @@ CREATE TABLE comments (
   user_id INT(11) NOT NULL,
   comment VARCHAR(100) NULL,
   rating INT(1) NOT NULL,
-  PRIMARY KEY (comment_id)
+  PRIMARY KEY (comment_id),
+  FOREIGN KEY fk_users_comments(user_id)
+    REFERENCES users(user_id)
 );
 
 CREATE TABLE socials (
@@ -28,7 +30,9 @@ CREATE TABLE socials (
   site_id INT(11) NOT NULL,
   user_id INT(11) NOT NULL,
   username VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY fk_users_socials(user_id)
+    REFERENCES users(user_id)
 );
 
 
