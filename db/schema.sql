@@ -16,7 +16,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE comments (
-  comment_id INT NOT NULL,
+  comment_id INT AUTO_INCREMENT NOT NULL,
   user_id INT(11) NOT NULL,
   comment VARCHAR(100) NULL,
   rating INT(1) NOT NULL,
@@ -26,11 +26,11 @@ CREATE TABLE comments (
 );
 
 CREATE TABLE socials (
-  sosial_id INT NOT NULL AUTO_INCREMENT,
+  social_id INT NOT NULL AUTO_INCREMENT,
   site_id INT(11) NOT NULL,
   user_id INT(11) NOT NULL,
   username VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id),
+  PRIMARY KEY (social_id),
   FOREIGN KEY fk_users_socials(user_id)
     REFERENCES users(user_id)
 );
@@ -38,3 +38,18 @@ CREATE TABLE socials (
 
 SELECT * FROM users;
 select * from comments;
+
+INSERT INTO users (username, first_name, last_name, rating_avg, age, gender, bio)
+VALUES ("john123", "John", "Smith", 2.5, 23, TRUE, "Hello, I'm John!"),
+("Mad222", "Maddie", "Jones", 5.5, 25, FALSE, "Hello world!"),
+("ChrisPbacon", "Chris", "Bacon", 7.0, 20, TRUE, "Hello, I'm awesome!");
+
+INSERT INTO comments (user_id, comment, rating)
+VALUES (1, "Radical dude", 5),
+(2, "it's ok", 3),
+(3, "Nah..", 1);
+
+INSERT INTO socials (user_id, site_id, username)
+VALUES (1, 1, "someDude"),
+(2, 1, "theMads"),
+(3, 1, "crispy");
