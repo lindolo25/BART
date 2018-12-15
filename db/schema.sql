@@ -26,7 +26,7 @@ CREATE TABLE comments (
 );
 
 CREATE TABLE socials (
-  sosial_id INT NOT NULL AUTO_INCREMENT,
+  social_id INT NOT NULL AUTO_INCREMENT,
   site_id INT(11) NOT NULL,
   user_id INT(11) NOT NULL,
   username VARCHAR(100) NOT NULL,
