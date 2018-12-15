@@ -16,18 +16,30 @@ app.use(bodyParser.json())
 app.use("/assets",Express.static("public"));
 
 
+// routes goes here
+
+var html = require('./controllers/html-routes');
+app.use(html);
+
+
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req, res, next) 
+{
+    if(res.headersSent) return next();
+    
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-// error handlers
-
-app.use(function (err, req, res, next) {
-    res.status(err.status);
-    res.sendFile(path.join(__dirname, "public/404.html"));
+// error handler
+app.use(function (err, req, res, next) 
+{
+    if(err)
+    {
+        res.status(err.status || 500);
+        res.sendFile(path.join(__dirname, "public/404.html"));
+    }    
 });
 
 

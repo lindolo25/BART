@@ -1,34 +1,31 @@
 const Express = require("express");
-const orm = require("../models/orm");
+const db = require("../models");
 var router = Express.Router();
 
 
 router.get('/', function (req, res) 
 {
+    res.render('index', {});
 });
 
-router.post('/api/burgers', function (req, res) 
+router.get('/profile', function (req, res) 
 {
-    if(req.body.newBurger)
-    {
-        orm.insertOne(req.body.newBurger, function(result)
-        {
-            result ? res.json(result) : res.json(false);
-        });
-    }
-    else res.json(false);
+    res.render('index', {});
 });
 
-router.put('/api/burgers/:id', function (req, res) 
+router.get('/profile/:profile', function (req, res) 
 {
-    if(req.params.id && req.body.devoured)
-    {
-        orm.updateOne(req.params.id, function(result)
-        {
-            result ? res.json(true) : res.json(false);
-        })
-    }
-    else res.json(false);
+    res.render('index', {});
+});
+
+router.post('/signup', function (req, res) 
+{
+    res.render('index', {});
+});
+
+router.post('/login', function (req, res) 
+{
+    res.render('index', {});
 });
 
 module.exports = router;
