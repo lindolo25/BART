@@ -36,6 +36,12 @@ module.exports = function(sequelize, DataTypes)
             type: DataTypes.STRING,
             allowNull: true
         }
-    });
+    }, { underscored: true });
+
+    User.associate = function(models) 
+    {
+       return; // User.hasMany(models.socials);
+    };
+
     return User;
 }
