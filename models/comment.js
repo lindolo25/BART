@@ -1,3 +1,28 @@
+// Dependencies
+// =============================================================
+
+// This may be confusing but here Sequelize (capital) references the standard library
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("../config/connection.js");
+
+
+var Comments = sequelize.define("comments", {
+  comment: Sequelize.STRING,
+  rating: Sequelize.STRING,
+  created_at: Sequelize.DATE
+});
+
+// Syncs with DB
+Comments.sync();
+
+// exporting to comments sql table
+module.exports = Comments;
+
+
+
+
+
 //Initial routes section
 //this will search for a user in the user table
 //the route will be dynamic and change to the name of the selected user
