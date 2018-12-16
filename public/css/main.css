@@ -23,7 +23,7 @@ a:hover {
 }
 
 
-/*Login Modal*/
+/*Modals*/
 .modal{
  max-height:100%;
  overflow:hidden;
@@ -41,7 +41,16 @@ input[type="submit"]{
   margin:0;
 }
 
-/*Sign Up Modal*/
+
+/*Logo*/
+.logo-graphic {
+  min-width: 360px;
+  max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+}
 
 
 /*Footer*/
