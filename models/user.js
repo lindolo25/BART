@@ -11,18 +11,9 @@ module.exports = function(sequelize, DataTypes)
             type: DataTypes.STRING,
             allowNull: false
         },
-        first_name: {
+        full_name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        last_name: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        rating_avg: {
-            type: DataTypes.DECIMAL(2, 1),
-            allowNull: false,
-            defaultValue: 0
         },
         age: {
             type: DataTypes.INTEGER(3),
@@ -35,8 +26,24 @@ module.exports = function(sequelize, DataTypes)
         bio: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        rating_avg: {
+            type: DataTypes.DECIMAL(2, 1),
+            allowNull: false,
+            defaultValue: 0
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
-    }, { underscored: true });
+    }, 
+    { 
+        underscored: true,
+        indexes: [{
+            unique: true,
+            fields: ['username']
+        }]
+    });
 
     User.associate = function(models) 
     {
