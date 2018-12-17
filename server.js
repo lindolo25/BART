@@ -21,6 +21,9 @@ app.use("/assets",Express.static("public"));
 var html = require('./controllers/html-routes');
 app.use(html);
 
+var socials = require('./controllers/social-routes');
+app.use('/api', socials);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) 
