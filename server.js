@@ -24,8 +24,11 @@ app.use(html);
 var socials = require('./controllers/social-routes');
 app.use('/api', socials);
 
+var comments = require('./controllers/comment-routes');
+app.use('/api', comments);
 
-// catch 404 and forward to error handler
+
+/*// catch 404 and forward to error handler
 app.use(function (req, res, next) 
 {
     var err = new Error('Not Found');
@@ -41,7 +44,7 @@ app.use(function (err, req, res, next)
         res.status(err.status || 500);
         res.sendFile(path.join(__dirname, "public/404.html"));
     }    
-});
+});*/
 
 
 db.sequelize.sync().then(function()

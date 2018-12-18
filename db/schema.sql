@@ -59,7 +59,26 @@ INSERT INTO socials (user_id, site_id, username, created_at, updated_at)
 
 /* some example queries that I'll be using latter on the routes */
 
-SELECT * FROM socials
-    INNER JOIN comments on socials.username = comments.username
+SELECT * FROM peek_db.users 
+    WHERE users.username = "mad222";
+
+SELECT socials.* FROM peek_db.socials 
     INNER JOIN users ON socials.user_id = users.user_id
-    WHERE users.username = "john123";
+    WHERE users.username = "mad222";
+
+SELECT * FROM comments;
+
+SELECT 
+    comments.comment_id, 
+    comments.site_id, 
+    comments.username, 
+    comments.comment,
+    comments.rating, 
+    comments.created_at, 
+    comments.updated_at 
+  FROM socials
+    INNER JOIN comments ON socials.username = comments.username 
+        AND socials.site_id = comments.site_id
+    INNER JOIN users ON socials.user_id = users.user_id
+    WHERE users.username = "mad222"
+    ORDER BY comments.created_at DESC;
