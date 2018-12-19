@@ -38,3 +38,4 @@ CREATE TABLE socials (
 
 SELECT * FROM users;
 select * from comments;
+select * from socials;
