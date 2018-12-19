@@ -1,31 +1,104 @@
 const Express = require("express");
 const db = require("../models");
 var router = Express.Router();
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
+passport.use(new LocalStrategy(function(username, password, cb) 
+{
+    db.users.findOne({
+        where: {
+            username: username
+        }
+    }, function(foundUser) 
+    {
+        if (!foundUser) 
+        {
+			return cb(null, false);
+        }
+        else if (foundUser.password == password) 
+        {
+            return cb(null, user);
+        }
+        else
+        {
+            return cb(null, false);
+        }
+    });
+}));
+
+passport.serializeUser(function (user, cb) 
+{
+	cb(null, user.id);
+});
+
+passport.deserializeUser(function (id, cb) 
+{
+    db.users.findOne({
+        where: {
+            user_id: id
+        }
+    }, function (foundUser) 
+    {
+		cb(foundUser);
+	});
+});
 
 router.post('/signup', function (req, res)
 {
-    // validate post data
+    req.body.username = req.body.username.trim();
+    req.body.first_name = req.body.first_name.trim();
+    req.body.last_name = req.body.last_name.trim();
+    req.body.age = parseInt(req.body.age.trim());
+    req.body.gender = typeof req.body.gender === "Boolean" ? req.body.gender : undefined;
+    req.body.bio = req.body.bio ? req.body.bio.trim() : null;
+    req.body.password = req.body.password.trim();
 
-    // save information in the database
+    var validation = req.body.username && req.body.first_name && req.body.last_name && req.body.age &&  req.body.gender != undefined && req.body.password;
+    
+    if (validation)
+    {
+        db.users.findOne({
+            attributes: ['user_id'],
+            where: { username: req.body.username }
+        }).then(function(dbPost) 
+        {
+            if(dbPost) return res.json({ 
+                error: true,
+                message: 'Username already exist.'
+            });
 
-    res.render('index', {});
+            var newUser = { 
+                username: req.body.username,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                age: req.body.age,
+                gender: req.body.gender,
+                bio: req.body.bio,
+                password: req.body.password
+            }
+    
+            db.users.create(newUser).then(function(dbPost)
+            {
+                res.json(dbPost);
+            });
+        });
+    }
+    else res.json({ 
+        error: true,
+        message: 'Validation failed.'
+    });
 });
 
-router.post('/login', function (req, res)
+router.post('/login', passport.authenticate('local'), function (req, res) 
 {
-    // validate user information
-
-    //implement passport-local session handling
-
-    res.render('index', {});
+    res.json(req.user);
 });
 
-router.post('/logout', function (req, res)
+router.get('/logout', function (req, res)
 {
-    //implement passport-local session logout
-
-    res.render('index', {});
+    req.logout();
+    res.redirect('/');
 });
 
 module.exports = router;
