@@ -39,17 +39,46 @@ CREATE TABLE socials (
 SELECT * FROM users;
 select * from comments;
 
-INSERT INTO users (username, first_name, last_name, rating_avg, age, gender, bio)
-VALUES ("john123", "John", "Smith", 2.5, 23, TRUE, "Hello, I'm John!"),
-("Mad222", "Maddie", "Jones", 5.5, 25, FALSE, "Hello world!"),
-("ChrisPbacon", "Chris", "Bacon", 7.0, 20, TRUE, "Hello, I'm awesome!");
+INSERT INTO users (username, first_name, last_name, rating_avg, age, gender, bio, password, created_at, updated_at)
+    VALUES 
+    ("john123", "John", "Smith", 2.5, 23, TRUE, "Hello, I'm John!", "Pass1234", now(), now()),
+    ("Mad222", "Maddie", "Jones", 5.5, 25, FALSE, "Hello world!", "Pass1234", now(), now()),
+    ("ChrisPbacon", "Chris", "Bacon", 7.0, 20, TRUE, "Hello, I'm awesome!", "Pass1234", now(), now());
 
-INSERT INTO comments (user_id, comment, rating)
-VALUES (1, "Radical dude", 5),
-(2, "it's ok", 3),
-(3, "Nah..", 1);
+INSERT INTO comments (user_id, site_id, username, comment, rating, created_at, updated_at)
+  VALUES 
+  (1, 1, "theMads", "Radical dude", 5, now(), now()),
+  (2, 1, "steve245", "it's ok", 3, now(), now()),
+  (3, 1, "theMads", "Nah..", 1, now(), now());
 
-INSERT INTO socials (user_id, site_id, username)
-VALUES (1, 1, "someDude"),
-(2, 1, "theMads"),
-(3, 1, "crispy");
+INSERT INTO socials (user_id, site_id, username, created_at, updated_at)
+  VALUES 
+  (1, 1, "someDude", now(), now()),
+  (2, 1, "theMads", now(), now()),
+  (3, 1, "crispy", now(), now());
+
+/* some example queries that I'll be using latter on the routes */
+
+SELECT * FROM peek_db.users 
+    WHERE users.username = "mad222";
+
+SELECT socials.* FROM peek_db.socials 
+    INNER JOIN users ON socials.user_id = users.user_id
+    WHERE users.username = "mad222";
+
+SELECT * FROM comments;
+
+SELECT 
+    comments.comment_id, 
+    comments.site_id, 
+    comments.username, 
+    comments.comment,
+    comments.rating, 
+    comments.created_at, 
+    comments.updated_at 
+  FROM socials
+    INNER JOIN comments ON socials.username = comments.username 
+        AND socials.site_id = comments.site_id
+    INNER JOIN users ON socials.user_id = users.user_id
+    WHERE users.username = "mad222"
+    ORDER BY comments.created_at DESC;

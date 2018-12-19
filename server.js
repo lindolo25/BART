@@ -5,28 +5,49 @@ var Express = require("express");
 var bodyParser = require("body-parser");
 var exphbs  = require('express-handlebars');
 var db = require('./models');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 const port = process.env.PORT || 3000;
 
 
 var app = Express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use("/assets",Express.static("public"));
+
+// Express Session
+app.use(session({
+    secret: process.env.NODE_SESSION_SECRET,
+    saveUninitialized: true,
+    resave: true
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // routes goes here
 
+var users = require('./controllers/user-routes');
+app.use(users);
+
 var html = require('./controllers/html-routes');
 app.use(html);
+
+var socials = require('./controllers/social-routes');
+app.use('/api', socials);
+
+var comments = require('./controllers/comment-routes');
+app.use('/api', comments);
 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) 
 {
-    if(res.headersSent) return next();
-    
     var err = new Error('Not Found');
     err.status = 404;
     next(err);

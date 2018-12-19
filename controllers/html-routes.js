@@ -3,28 +3,26 @@ const db = require("../models");
 var router = Express.Router();
 
 
-router.get('/', function (req, res) 
+router.get('/', function (req, res)
 {
+    // return the homepage
     res.render('index', {});
 });
 
-router.get('/profile', function (req, res) 
+router.get('/profile', function (req, res)
 {
+    // get the user information.
+
+    // get user's social links.
+
+    // get user related comments.
+
     res.render('index', {});
 });
 
-router.get('/profile/:profile', function (req, res) 
+router.get('/search', function (req, res)
 {
-    res.render('index', {});
-});
-
-router.post('/signup', function (req, res) 
-{
-    res.render('index', {});
-});
-
-router.post('/login', function (req, res) 
-{
+    //search comments table for matcing comments.
     res.render('index', {});
 });
 

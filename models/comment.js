@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) 
 {
-    var socials = sequelize.define("socials", {
-        social_id: {
+    var comments = sequelize.define("comments", {
+        comment_id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
@@ -14,12 +14,20 @@ module.exports = function(sequelize, DataTypes)
         username: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        comment: {
+            type: DataTypes.STRING(100),
+            allowNull: true
+        },
+        rating: {
+            type: DataTypes.INTEGER(1),
+            allowNull: false
         }
     }, { underscored: true });
 
-    socials.associate = function(models) 
+    comments.associate = function(models) 
     {
-        socials.belongsTo(models.users, 
+        comments.belongsTo(models.users, 
         {
             foreignKey: {
                 name: 'user_id',
@@ -28,5 +36,5 @@ module.exports = function(sequelize, DataTypes)
         });
     };
 
-    return socials;
+    return comments;
 }
