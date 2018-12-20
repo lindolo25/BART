@@ -21,10 +21,4 @@ router.get('/profile', ensureAuthenticated, function (req, res)
     res.render('index', {});
 });
 
-router.get('/search', function (req, res)
-{
-    //search comments table for matcing comments.
-    res.render('index', {});
-});
-
 module.exports = router;
