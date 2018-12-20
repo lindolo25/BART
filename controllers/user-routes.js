@@ -7,18 +7,16 @@ var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(function(username, password, cb) 
 {
     db.users.findOne({
-        where: {
-            username: username
-        }
-    }, function(foundUser) 
+        where: { username: username }
+    }).then(function(foundUser) 
     {
         if (!foundUser) 
         {
 			return cb(null, false);
         }
-        else if (foundUser.password == password) 
+        else if (foundUser.password == password)
         {
-            return cb(null, user);
+            return cb(null, foundUser);
         }
         else
         {
@@ -29,7 +27,7 @@ passport.use(new LocalStrategy(function(username, password, cb)
 
 passport.serializeUser(function (user, cb) 
 {
-	cb(null, user.id);
+	cb(null, user.user_id);
 });
 
 passport.deserializeUser(function (id, cb) 
@@ -38,9 +36,9 @@ passport.deserializeUser(function (id, cb)
         where: {
             user_id: id
         }
-    }, function (foundUser) 
+    }).then(function (foundUser) 
     {
-		cb(foundUser);
+		cb(null, foundUser);
 	});
 });
 
@@ -90,9 +88,23 @@ router.post('/signup', function (req, res)
     });
 });
 
-router.post('/login', passport.authenticate('local'), function (req, res) 
+router.post('/login', function (req, res, next) 
 {
-    res.json(req.user);
+    passport.authenticate('local', function(err, user) 
+    {
+        if (err) { return next(err); }
+
+        if (!user) { return res.json(false); }
+
+        req.logIn(user, function(err) 
+        {
+            if (err) { return next(err); }
+            return res.json(user);
+        });
+      
+    })(req, res, next);
+    
+    //res.json(req.user);
 });
 
 router.get('/logout', function (req, res)

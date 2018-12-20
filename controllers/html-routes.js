@@ -1,5 +1,6 @@
 const Express = require("express");
 const db = require("../models");
+const ensureAuthenticated = require('../config/authenticate');
 var router = Express.Router();
 
 
@@ -9,7 +10,7 @@ router.get('/', function (req, res)
     res.render('index', {});
 });
 
-router.get('/profile', function (req, res)
+router.get('/profile', ensureAuthenticated, function (req, res)
 {
     // get the user information.
 

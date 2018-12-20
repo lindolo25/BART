@@ -20,7 +20,7 @@ app.use("/assets",Express.static("public"));
 
 // Express Session
 app.use(session({
-    secret: process.env.NODE_SESSION_SECRET,
+    secret: process.env.NODE_SESSION_SECRET || 'secret',
     saveUninitialized: true,
     resave: true
 }));
@@ -53,7 +53,7 @@ app.use(function (req, res, next)
     next(err);
 });
 
-// error handler
+/*// error handler
 app.use(function (err, req, res, next) 
 {
     if(err)
@@ -61,7 +61,7 @@ app.use(function (err, req, res, next)
         res.status(err.status || 500);
         res.sendFile(path.join(__dirname, "public/404.html"));
     }    
-});
+});*/
 
 
 db.sequelize.sync().then(function()
