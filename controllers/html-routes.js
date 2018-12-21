@@ -16,6 +16,9 @@ router.get('/profile', function (req, res)
     // get user's social links.
 
     // get user related comments.
+    //use ajax request to get comments in the frontend (js)
+    //get html from ale
+    //use handlebars (views folder)
 
     res.render('index', {});
 });
