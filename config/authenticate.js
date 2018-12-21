@@ -1,11 +1,12 @@
 module.exports = function ensureAuthenticated(req, res, next)
 {
-    if(req.isAuthenticated())
+    var a = req.isAuthenticated()
+    if(a)
     {
-		return next();
+	    return next();
     } 
     else 
     {
-        res.redirect('/login');
+        res.redirect('/');
 	}
 }

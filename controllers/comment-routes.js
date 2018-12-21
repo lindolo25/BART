@@ -34,6 +34,37 @@ router.get('/comment/:username', function (req, res)
     else res.json([]);
 });
 
+router.get('/comment/search/:value/:page?', function (req, res)
+{
+    var value = req.params.value.trim();
+    var resultObject = {};
+    var Op = db.sequelize.Op;
+
+    if(value)
+    {
+        var page = req.params.page === undefined ? 1 : parseInt(req.params.page.trim());
+        page = page > 0 ? page : 1;
+
+        db.comments.findAll({
+            attributes: ['comment_id', 'site_id', 'username', 'comment', 'rating', 'created_at', 'updated_at'],
+            offset: (15 * page) - 15,
+            limit: 15,
+            where: {
+                username: {
+                    [Op.like]: '%' + value + '%'
+                }
+            }
+        }).then(function(founded) 
+        {
+            res.json(founded)
+        })
+    }
+    else
+    {
+        res.json(false)
+    }
+});
+
 router.post('/comment', function (req, res)
 {
     req.body.site_id = parseInt(req.body.site_id.trim());
