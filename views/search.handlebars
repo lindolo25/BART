@@ -1,0 +1,14 @@
+<div>
+	{{#each comments}}
+	<div class="comment">
+		<span>{{username}}</span>
+		<pand>{{rating}}</pand>
+		<p>{{comment}}</p>		
+	</div>
+  	{{/each}}
+	{{!-- only output author name if an author exists --}}
+	{{#if message}}
+		<h1>{{message}}</h1>
+	{{/if}}
+	
+</div>

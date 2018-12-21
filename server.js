@@ -11,12 +11,14 @@ var LocalStrategy = require('passport-local').Strategy;
 const port = process.env.PORT || 3000;
 
 
+
+
 var app = Express();
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main', partialsDir: ['views/partials/']}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/assets",Express.static("public"));
+app.use("/",Express.static("public"));
 
 // Express Session
 app.use(session({
