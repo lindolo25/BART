@@ -116,30 +116,30 @@
 
   	<form action="#">
 		<div class="row">
-	  		<div class="input-field col s6">
+	  		<div class="input-field col s12 m6">
 	          <i class="material-icons prefix">account_circle</i>
 	          <input id="icon_prefix" type="text" class="validate">
 	          <label for="icon_prefix">First Name</label>
 	        </div>
-	        <div class="input-field col s6">
+	        <div class="input-field col s12 m6">
 	          <input id="last_name" type="text" class="validate">
 	          <label for="last_name">Last Name</label>
 	        </div>
     	</div>
 
     	<div class="row">
-	  		<div class="input-field col s6">
+	  		<div class="input-field col s12 m6">
 	          <i class="material-icons prefix">plus_one</i>
 	          <input id="age" type="text" class="validate">
 	          <label for="age">Age</label>
 	        </div>
-	        <div class="input-field col s6">
-		        <i class="material-icons prefix">wc</i>
-		        <select id="options" name="optionsname" required class="validate" onchange="changeOption()">
+	        <div class="input-field col s12 m6">
+		        <i id="prefix-fix" class="material-icons prefix">wc</i>
+		        <select id="gender" name="gender" required onchange="changeOption()">
 	     			<option value="" required disabled selected>Gender</option>
 	      			<option value="opt1">Male</option>
 	      			<option value="opt2">Female</option>
-	    		</select>
+				</select>				
     			<label for="gender">Select Gender</label>
 	        </div>
     	</div>
@@ -191,6 +191,11 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/main.js"></script>    
+	<script src="js/main.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('select').formSelect();
+		});
+	</script>    
 </body>
 </html>

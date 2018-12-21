@@ -81,3 +81,5 @@ footer.page-footer {
   padding: 11px;
   margin-top: 10px;
 }
+
+#prefix-fix { left: 0.5rem; }
