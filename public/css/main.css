@@ -1,15 +1,23 @@
 body {
   font-family: 'News Cycle', sans-serif;
-  font-size: 30px;
+  font-size: 15px;
   color: #042536;
   background-color: rgba(145,171,180,.5);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  padding-top: 10px;
 }
 
 main {
 	flex: 1 0 auto; 
+}
+
+/*h2 {
+  font-size: 30px;
+}*/
+h3, h4 {
+  font-size: 30px;
 }
 
 
@@ -52,12 +60,22 @@ input[type="submit"]{
   margin-right: auto;
 }
 
+.logo-graphic-search {
+  max-width: 200px;
+  display: block;
+}
 
+.logo-graphic-home {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 11px;
+  max-width: 125px;
+}
 /*Profile Example Image*/
 .profileimg {
-  max-width: 300px;
+  max-width: 400px;
   border-radius: 50%;
-  display: block;
   margin-left: auto;
   margin-top: 50px;
   margin-right: auto;
@@ -76,7 +94,7 @@ footer.page-footer {
   color: #fcfbf9;
   font-family: 'News Cycle', Arial, Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 15px;
   text-align: center;
   padding: 11px;
   margin-top: 10px;
