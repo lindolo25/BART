@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col s2 offset-s10">
                 <div class="login-btn">
-                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" >Log In</a>
+                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Log In</a>
                 </div>
               </div>
             </div>
@@ -54,8 +54,8 @@
   		<br>
 
   		<div class="left" style="margin-left:20px;">
-  			<label for="check">
-  				<input type="checkbox" id="check">
+  			<label for="check1">
+  				<input type="checkbox" id="check1">
   			<span>Remember me</span>
   			</label>
   		</div>
@@ -135,10 +135,10 @@
 	        </div>
 	        <div class="input-field col s6">
 		        <i class="material-icons prefix">wc</i>
-		        <select>
-	     			<option value="" disabled selected>Gender</option>
-	      			<option value="1">Male</option>
-	      			<option value="2">Female</option>
+		        <select id="options" name="optionsname" required class="validate" onchange="changeOption()">
+	     			<option value="" required disabled selected>Gender</option>
+	      			<option value="opt1">Male</option>
+	      			<option value="opt2">Female</option>
 	    		</select>
     			<label for="gender">Select Gender</label>
 	        </div>
@@ -170,8 +170,8 @@
 
 
   		<div class="left" style="margin-left:20px;">
-  			<label for="check">
-  				<input type="checkbox" id="check">
+  			<label for="check2">
+  				<input type="checkbox" id="check2">
   			<span>Remember me</span>
   			</label>
   		</div>

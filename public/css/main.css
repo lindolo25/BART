@@ -2,7 +2,7 @@ body {
   font-family: 'News Cycle', sans-serif;
   font-size: 30px;
   color: #042536;
-  background-color: #fcfbf9;
+  background-color: rgba(145,171,180,.5);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -14,12 +14,12 @@ main {
 
 
 /*Buttons*/
-a{
-	background-color: #0e505e;
+.btn, .btn-large{
+	background-color: #2E3E4B;
 	color: #fcfbf9;
 }
-a:hover {
-	background-color: white;
+.btn:hover, .btn-large:hover {
+	background-color:  #2D313C;
 }
 
 
@@ -53,12 +53,26 @@ input[type="submit"]{
 }
 
 
+/*Profile Example Image*/
+.profileimg {
+  max-width: 300px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+}
+
+/*Star Rating*/
+
+
+
 /*Footer*/
 footer.page-footer {
     left: 0;
     bottom: 0;
     width: 100%;
-  background-color: #056474;
+  background-color: #4A4D56;
   color: #fcfbf9;
   font-family: 'News Cycle', Arial, Helvetica, sans-serif;
   font-weight: 400;
