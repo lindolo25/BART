@@ -4,79 +4,198 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Peek</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Abel|News+Cycle|Open+Sans+Condensed:300|Shadows+Into+Light+Two|Thasadith" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Abel|News+Cycle|Open+Sans+Condensed:300|Shadows+Into+Light+Two|Thasadith" rel="stylesheet">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   	<link rel="stylesheet" href="css/main.css">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <script src="main.js"></script>
+
 </head>
 <body>
-		<header>	
+	<header>	
+		<div class="container scale-transition">
             <div class="row">
               <div class="col s2 offset-s10">
                 <div class="login-btn">
-                  <a class="waves-effect waves-light btn-small">Log In</a>
+                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Log In</a>
                 </div>
               </div>
             </div>
-        
+        </div>  
 	</header>
 
-  	<!-- Log In Card -->
-<div class="valign-wrapper row login-box">
-  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-    <form>
-      <div class="card-content">
-        <span class="card-title">Log In</span>
-        <div class="row">
-          <div class="input-field col s12">
-            <label for="email">Email address</label>
-            <input type="email" class="validate" name="email" id="email" />
-          </div>
-          <div class="input-field col s12">
-            <label for="password">Password </label>
-            <input type="password" class="validate" name="password" id="password" />
-          </div>
-        </div>
-      </div>
-      <div class="card-action right-align">
-        <input type="submit" class="btn green waves-effect waves-light" value="Login">
-      </div>
-    </form>
+  	<!-- Log In Modal -->
+
+<div id="modal1" class="modal">
+  <h5 class="modal-close">&#10005;</h5>
+  <div class="modal-content center">
+  	<h4>Log In</h4>
+  	<br>
+
+  	<form action="#">
+
+  		<div class="input-field">
+  			<i class="material-icons prefix">person</i>
+  			<input type="text" id="name">
+  			<label for="name">Username</label>
+  		</div>
+  		<br>
+
+  		<div class="input-field">
+  			<i class="material-icons prefix">lock</i>
+  			<input type="password" id="pass">
+  			<label for="pass">Password</label>
+  		</div>
+  		<br>
+
+  		<div class="left" style="margin-left:20px;">
+  			<label for="check1">
+  				<input type="checkbox" id="check1">
+  			<span>Remember me</span>
+  			</label>
+  		</div>
+  		<br>
+
+  		<input type="submit" value="Login" class="btn">
+  	</form>
   </div>
 </div>
 
-  	<!-- Sign Up Card -->
-
 
   	<!-- Logo -->	
+	<div class="container" id="Logo">
 	    <div class="row">
 	    	<div class="col s12">
-	     	<!--Image -->
+	     	<img class="logo-graphic" alt="peek-logo" src="images/Peek.svg">
 	    	</div>
 	    </div>
 	    <div class="row">
 	    	<div class="col s12">
-	    		<p class="center-align" id="slogan">Peek</p>
+	    		<p class="center-align" id="slogan">Add slogan here?</p>
 	      	</div>
 		</div>
+	</div>
 
 
+	<!-- Search Bar -->
+		<div class="container scale-transition" id="searchBar">
+			<div class="row">
+				<div class="col s12">
+					<form action="" autocomplete="off" class="tag-form">
+						<div class="input autocomplete">
+							<label></label>
+							<input id="search-field" type="text" name="searchField">
+						</div>
+						<div class="col s2 pull-s10">
+							<a class="tiny material-icons" href="">close</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 	<!-- Sign Up Button -->
 		<div class="row">
-			<div class="col s6 center-align">
-				<a class="waves-effect waves-light btn-large">Sign Up</a>
+			<div class="col s7 offset-s5">
+				<a class="waves-effect waves-light btn-large modal-trigger" href="#modal2">Sign Up</a>
 			</div>
 		</div>
+
+
+	<!-- Sign Up Modal -->
+<div id="modal2" class="modal">
+  <h5 class="modal-close">&#10005;</h5>
+  <div class="modal-content center">
+  	<h4>Create Account</h4>
+  	<br>
+
+  	<form action="#">
+		<div class="row">
+	  		<div class="input-field col s12 m6">
+	          <i class="material-icons prefix">account_circle</i>
+	          <input id="icon_prefix" type="text" class="validate">
+	          <label for="icon_prefix">First Name</label>
+	        </div>
+	        <div class="input-field col s12 m6">
+	          <input id="last_name" type="text" class="validate">
+	          <label for="last_name">Last Name</label>
+	        </div>
+    	</div>
+
+    	<div class="row">
+	  		<div class="input-field col s12 m6">
+	          <i class="material-icons prefix">plus_one</i>
+	          <input id="age" type="text" class="validate">
+	          <label for="age">Age</label>
+	        </div>
+	        <div class="input-field col s12 m6">
+		        <i id="prefix-fix" class="material-icons prefix">wc</i>
+		        <select id="gender" name="gender" required onchange="changeOption()">
+	     			<option value="" required disabled selected>Gender</option>
+	      			<option value="opt1">Male</option>
+	      			<option value="opt2">Female</option>
+				</select>				
+    			<label for="gender">Select Gender</label>
+	        </div>
+    	</div>
+
+  		<div class="row">
+	  		<div class="input-field col s12">
+	  			<i class="material-icons prefix">person</i>
+	  			<input type="text" id="name">
+	  			<label for="name">Username</label>
+	  		</div>
+  		</div>
+
+  		<div class="row">
+	  		<div class="input-field col s12">
+	  			<i class="material-icons prefix">lock</i>
+	  			<input type="password" id="pass">
+	  			<label for="pass">Password</label>
+	  		</div>
+  		</div>
+
+  		<div class="row">
+  			<div class="input-field col s12">
+  				<i class="material-icons prefix">create</i>
+	  			<input type="text" id="bio">
+	  			<label for="bio">Bio (Optional)</label>
+  			</div>
+  		</div>
+
+
+  		<div class="left" style="margin-left:20px;">
+  			<label for="check2">
+  				<input type="checkbox" id="check2">
+  			<span>Remember me</span>
+  			</label>
+  		</div>
+  		<br>
+
+  		<input type="submit" value="Sign Up" class="btn">
+  	</form>
+  </div>
+</div>	
+
 
 	</div>
 	<!-- Footer -->
 <footer class="page-footer">
             PEEK YOUR BOO
 </footer>
-    
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="js/main.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('select').formSelect();
+		});
+	</script>    
 </body>
 </html>
