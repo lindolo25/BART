@@ -21,28 +21,46 @@
 <body> 
 <header>
 <div class="container scale-transition">
-    <a class="center-align" href="index.html">
-      <img class="logo-graphic-home" alt="peek-logo" src="images/Peek.svg">
+  <div class="row">
+    <div class="col s4 offset-s8">
+    <a class="return" href="index.html">
+      <img class="logo-graphic-home" alt="peek-logo" src="images/Peek-logo.svg">
     </a>
+  </div>
+</div>
 </div>
 </header>
 
 <div class="container scale-transition">
     <div class="row">
-      <div class="col s12 m4 l8">
+      <div class="col s12 m5 l4">
         <img class="profileimg" alt="profile-img" src="Images/Barbie.jpg">
       </div>
-        <div class="col s12 m8 l4">
+        <div class="col s12 m7 l8">
         <h2>Barbie 23</h2>
         <h3>Bio</h3>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
         <a class="waves-effect waves-light btn-small"><i class="material-icons left">create</i>Edit Bio</a>
-        <h3>Star Ratings</h3>
       </div>
     </div>
-
+    
     <div class="row">
-      <div class="col s6">
+      <div class="col s12 m5 l4">
+        <h3>Star Ratings</h3>
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+      </div>
+      <div class="col s12 m7 l8">
        <h4>Social Media</h4>
         <ul>
           <li>fake handle 1</li>
