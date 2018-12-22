@@ -38,7 +38,7 @@ router.get('/profile', ensureAuthenticated, function (req, res)
     
 });
 
-router.get('/search/:value/:page?', function (req, res)
+router.get('/search', function (req, res)
 {
     var value = req.params.value.trim();
     var resultObject = {};
@@ -58,8 +58,19 @@ router.get('/search/:value/:page?', function (req, res)
                     [Op.like]: '%' + value + '%'
                 }
             }
-        }).then(function(founded) 
+        }).then(function(comments) 
         {
+            db.users.findAll({
+                attributes: ['comment_id', 'site_id', 'username', 'comment', 'rating', 'created_at', 'updated_at'],
+                offset: (15 * page) - 15,
+                limit: 15,
+                where: {
+                    username: {
+                        [Op.like]: '%' + value + '%'
+                    }
+                }
+            })
+
             if(founded.length > 0)
             {
                 res.render('search', {
