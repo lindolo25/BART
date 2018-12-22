@@ -1,114 +1,59 @@
-<!-- Logo -->	
-	<div class="container" id="Logo">
-	    <div class="row">
-	    	<div class="col s12">
-	     	<img class="logo-graphic" alt="peek-logo" src="images/Peek.svg">
-	    	</div>
-	    </div>
-	    <div class="row">
-	    	<div class="col s12">
-	    		<p class="center-align" id="slogan">Add slogan here?</p>
-	      	</div>
-		</div>
-	</div>
+{{> headerWithLogo}}
+
+<div class="container scale-transition">
+    <div class="row">
+      <div class="col s12 m5 l4">
+        <img class="profileimg" alt="profile-img" src="Images/{{img_link}}">
+      </div>
+        <div class="col s12 m7 l8">
+        <h2 id="current-user" data-username="{{username}}">{{username}} {{age}}</h2>
+        <h3>Bio</h3>
+        <p>{{bio}}</p>
+        <a class="waves-effect waves-light btn-small"><i class="material-icons left">create</i>Edit Bio</a>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col s12 m5 l4">
+        <h3>Star Ratings</h3>
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+      </div>
+      <div class="col s12 m7 l8">
+       <h4>Social Media</h4>
+        <ul>
+			{{#each socials}}
+          	<li>{{username}}</li>
+			{{/each}}
+        </ul>
+      </div>
+    </div>
 
 
-	<!-- Search Bar -->
-		<div class="container scale-transition" id="searchBar">
-			<div class="row">
-				<div class="col s12">
-					<form action="" autocomplete="off" class="tag-form">
-						<div class="input autocomplete">
-							<label></label>
-							<input id="search-field" type="text" name="searchField">
-						</div>
-						<div class="col s2 pull-s10">
-							<a class="tiny material-icons" href="">close</a>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+    <div class="row">
+      <div class="col s12">
+        <h4>Comments</h4>
+        <!-- Insert Comments -->
+        <div id="comments-section" class="row">
+          
 
-	<!-- Sign Up Button -->
-		<div class="row">
-			<div class="col s7 offset-s5">
-				<a class="waves-effect waves-light btn-large modal-trigger" href="#modal2">Sign Up</a>
-			</div>
-		</div>
-
-
-	<!-- Sign Up Modal -->
-<div id="modal2" class="modal">
-  <h5 class="modal-close">&#10005;</h5>
-  <div class="modal-content center">
-  	<h4>Create Account</h4>
-  	<br>
-
-  	<form action="#">
-		<div class="row">
-	  		<div class="input-field col s12 m6">
-	          <i class="material-icons prefix">account_circle</i>
-	          <input id="icon_prefix" type="text" class="validate">
-	          <label for="icon_prefix">First Name</label>
-	        </div>
-	        <div class="input-field col s12 m6">
-	          <input id="last_name" type="text" class="validate">
-	          <label for="last_name">Last Name</label>
-	        </div>
-    	</div>
-
-    	<div class="row">
-	  		<div class="input-field col s12 m6">
-	          <i class="material-icons prefix">plus_one</i>
-	          <input id="age" type="text" class="validate">
-	          <label for="age">Age</label>
-	        </div>
-	        <div class="input-field col s12 m6">
-		        <i id="prefix-fix" class="material-icons prefix">wc</i>
-		        <select id="gender" name="gender" required onchange="changeOption()">
-	     			<option value="" required disabled selected>Gender</option>
-	      			<option value="opt1">Male</option>
-	      			<option value="opt2">Female</option>
-				</select>				
-    			<label for="gender">Select Gender</label>
-	        </div>
-    	</div>
-
-  		<div class="row">
-	  		<div class="input-field col s12">
-	  			<i class="material-icons prefix">person</i>
-	  			<input type="text" id="name">
-	  			<label for="name">Username</label>
-	  		</div>
-  		</div>
-
-  		<div class="row">
-	  		<div class="input-field col s12">
-	  			<i class="material-icons prefix">lock</i>
-	  			<input type="password" id="pass">
-	  			<label for="pass">Password</label>
-	  		</div>
-  		</div>
-
-  		<div class="row">
-  			<div class="input-field col s12">
-  				<i class="material-icons prefix">create</i>
-	  			<input type="text" id="bio">
-	  			<label for="bio">Bio (Optional)</label>
-  			</div>
-  		</div>
-
-
-  		<div class="left" style="margin-left:20px;">
-  			<label for="check2">
-  				<input type="checkbox" id="check2">
-  			<span>Remember me</span>
-  			</label>
-  		</div>
-  		<br>
-
-  		<input type="submit" value="Sign Up" class="btn">
-  	</form>
+        </div>
+      </div>
   </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
