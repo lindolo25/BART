@@ -18,10 +18,14 @@ function printAPIResponse(response)
 {
     for(var i = 0; i < response.length; i++)
     {
-        var item =  $("<div>");
-        item.addClass("col s12 m6 l4");
-        item.append("<span>"+ response[i].username +"</span>");
-        item.append("<p>"+ response[i].comment +"</p>");
+        var item =  $('<div class="col s4">\
+                <div class="card blue-grey darken-1">\
+                    <div class="card-content white-text">\
+                        <p>'+ response[i].comment +'</p>\
+                        <span>'+ response[i].username +'</span>\
+                    </div>\
+                </div>\
+            </div>');
         $("#comments-section").append(item);
     }
 }
