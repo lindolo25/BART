@@ -71,7 +71,13 @@ a, a:visited, a:hover {
   border-right: 2px solid #798988;
   border-bottom: 2px solid #798988;
 }
-
+textarea.materialize-textarea:focus + label {
+  color: #798988 !important;
+}
+textarea.materialize-textarea:focus {
+  border-bottom: 1px solid #798988 !important;
+  box-shadow: 0 1px 0 0 #798988 !important;
+}
 
 
 /*Modals*/
@@ -107,7 +113,7 @@ input[type="submit"]{
 }
 
 .logo-graphic-search {
-  max-width: 200px;
+  max-width: 125px;
   display: block;
 }
 
@@ -115,7 +121,6 @@ input[type="submit"]{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 11px;
   max-width: 125px;
 }
 
@@ -137,6 +142,14 @@ input[type="submit"]{
 .profileimg {
   min-width: 40%;
   max-width: 100%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+}
+.daters {
+  min-width: 40%;
+  max-width: 90%;
   border-radius: 50%;
   margin-left: auto;
   margin-top: 50px;
@@ -180,7 +193,17 @@ input[type="submit"]{
     color: #ECD59D;
 }
 
+i.small {
+  font-size: 2.5rem;
+  color: #ECD59D !important; 
+}
 
+
+/*Comments*/
+
+span {
+  font-size: 15px;
+}
 /*Footer*/
 footer {
     left: 0;
