@@ -45,14 +45,17 @@ passport.deserializeUser(function (id, cb)
 router.post('/signup', function (req, res)
 {
     req.body.username = req.body.username.trim();
-    req.body.first_name = req.body.first_name.trim();
-    req.body.last_name = req.body.last_name.trim();
-    req.body.age = parseInt(req.body.age.trim());
-    req.body.gender = typeof req.body.gender === "Boolean" ? req.body.gender : undefined;
+    req.body.firstName = req.body.firstName.trim();
+    req.body.lastName = req.body.lastName.trim();
     req.body.bio = req.body.bio ? req.body.bio.trim() : null;
     req.body.password = req.body.password.trim();
 
-    var validation = req.body.username && req.body.first_name && req.body.last_name && req.body.age &&  req.body.gender != undefined && req.body.password;
+    var validation = (req.body.username && 
+        req.body.firstName && 
+        req.body.lastName && 
+        req.body.age && 
+        req.body.gender != undefined && 
+        req.body.password) ? true : false;
     
     if (validation)
     {
@@ -68,17 +71,21 @@ router.post('/signup', function (req, res)
 
             var newUser = { 
                 username: req.body.username,
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
+                first_name: req.body.firstName,
+                last_name: req.body.lastName,
                 age: req.body.age,
                 gender: req.body.gender,
                 bio: req.body.bio,
                 password: req.body.password
             }
     
-            db.users.create(newUser).then(function(dbPost)
+            db.users.create(newUser).then(function(user)
             {
-                res.json(dbPost);
+                req.logIn(user, function(err) 
+                {
+                    if (err) { return next(err); }
+                    return res.json(user);
+                });
             });
         });
     }
