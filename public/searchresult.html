@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Peek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Abel|News+Cycle|Open+Sans+Condensed:300|Shadows+Into+Light+Two|Thasadith" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  	<link rel="stylesheet" href="css/main.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+
+</head>
+<body>
+	<header>	
+		<div class="container scale-transition">
+            <div class="row">
+	<!-- Logo -->	
+		    	<div class="col s4">
+		     		<img class="logo-graphic-search" alt="peek-logo" src="images/Peek-logo.svg">
+		    	</div>
+		    	<div class="col s2 offset-s6">
+	                <div class="login-btn">
+	                	<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Log In</a>
+	                </div>
+	              </div>
+	    	</div>
+		</div>
+	</header>
+
+  	<!-- Log In Modal -->
+
+<div id="modal1" class="modal">
+  <h5 class="modal-close">&#10005;</h5>
+  <div class="modal-content center">
+  	<h4>Log In</h4>
+  	<br>
+
+  	<form action="#">
+
+  		<div class="input-field">
+  			<i class="material-icons prefix">person</i>
+  			<input type="text" id="name">
+  			<label for="name">Username</label>
+  		</div>
+  		<br>
+
+  		<div class="input-field">
+  			<i class="material-icons prefix">lock</i>
+  			<input type="password" id="pass">
+  			<label for="pass">Password</label>
+  		</div>
+  		<br>
+
+  		<div class="left" style="margin-left:20px;">
+  			<label for="check1">
+  				<input type="checkbox" id="check1">
+  			<span>Remember me</span>
+  			</label>
+  		</div>
+  		<br>
+
+  		<input type="submit" value="Login" class="btn">
+  	</form>
+  </div>
+</div>
+
+
+	<!-- Search Bar -->
+		<div class="container scale-transition" id="searchBar">
+			<div class="row">
+				<div class="col s12">
+					<form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+				</div>
+			</div>
+		</div>
+
+	<div class="container scale-transition" id="searchResults">
+
+ <!-- Profiles -->
+    <div class="row">
+      <div class="col s12 m3 l2">
+        <img class="daters" alt="profile-img" src="Images/Bechir.jpg">
+      </div>
+      <div class="col s12 m9 l10">
+
+        <br>
+        <h5>Bechir 27</h5>
+        <h6>"The African King"</h6>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star_half</i>
+        <i class="small material-icons">star_border</i>
+        <i class="small material-icons">star_border</i>
+       
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea2">Create Comment</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m3 l2">
+        <img class="daters" alt="profile-img" src="Images/Robert.jpg">
+      </div>
+      <div class="col s12 m9 l10">
+        <br>
+        <h5>Robert 22</h5>
+        <h6>"What's my name again?"</h6>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star_half</i>
+        <i class="small material-icons">star_border</i>
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textarea3" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea3">Create Comment</label>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m3 l2">
+        <img class="daters" alt="profile-img" src="Images/Charlie.jpg">
+      </div>
+      <div class="col s12 m9 l10">
+        <br>
+        <h5>Charlie 48</h5>
+        <h6>"Bad Teacher"</h6>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star_half</i>
+        <i class="small material-icons">star_border</i>
+        <i class="small material-icons">star_border</i>
+        <i class="small material-icons">star_border</i>
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textarea4" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea4">Create Comment</label>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m3 l2">
+        <img class="daters" alt="profile-img" src="Images/Jose.jpg">
+      </div>
+      <div class="col s12 m9 l10">
+        <br>
+        <h5>Jose 30</h5>
+        <h6>"Darth Vaper"</h6>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star_border</i>
+        <i class="small material-icons">star_border</i>
+        <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textarea5" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea5">Create Comment</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m3 l2">
+        <img class="daters" alt="profile-img" src="Images/Charles.jpg">
+      </div>
+      <div class="col s12 m9 l10">
+        <br>
+        <h5>Charles 35</h5>
+        <h6>"Chancleta Charlie"</h6>
+          <i class="small material-icons">star</i>
+        <i class="small material-icons">star</i>
+        <i class="small material-icons">star_half</i>
+        <i class="small material-icons">star_border</i>
+        <i class="small material-icons">star_border</i>
+          <div class="input-field">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textarea6" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea6">Create Comment</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+		<!-- <div class="row">
+		      <div class="col s12">
+		        <h5>Add Comments</h5> -->
+		       <!-- Insert Comments -->
+		     <!--  </div>
+		      <div class="input-field col s12">
+		        <i class="material-icons prefix">mode_edit</i>
+		        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+		        <label for="textarea2">Create Comment</label>
+		      </div>
+		    </div>
+	</div> -->
+
+
+  <!-- Comment Section -->
+  <div class="container scale-transition" id="searchResultsComments">
+
+    <div class="row">
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+    <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+    <div class="row">
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="col s4">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>Went on a date in 2008, still haven't gotten a call back.</p>
+          <span>Bitch 1</span>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+	<!-- Footer -->
+<footer class="page-footer">
+            PEEK YOUR BOO
+</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="js/main.js"></script> 
+	<script type="text/javascript"></script>    
+</body>
+</html>

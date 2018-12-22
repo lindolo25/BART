@@ -1,0 +1,127 @@
+{{#if user_id}}
+    {{> headerLogout}}
+{{else}}
+	{{> headerNoLogo}}
+{{/if}}    
+ 
+
+<!-- Logo -->	
+	<div class="container scale-transition" id="Logo">
+	    <div class="row">
+	    	<div class="col s12">
+	     	<img class="logo-graphic" alt="peek-logo" width="350" src="images/Animated-logo.gif">
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col s12">
+	    		<p class="center-align" id="slogan">Search. Snoop. Swipe.</p>
+	      	</div>
+		</div>
+	</div>
+
+
+	<!-- Search Bar -->
+		<div class="container" id="searchBar">
+			<div class="search-input">
+				<div class="search-icon"><i class="small material-icons">search</i>
+					<form id="search-form" name="search-form" action="/" method="GET" class="search-form">
+						<input id="search" name="q" type="text" placeholder="Search" ="searchField" autocomplete="off">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	<!-- Sign Up Button -->
+	{{#if user_id}}
+		
+	{{else}}
+		<div class="container scale-transition">
+			<div class="row">
+				<div class="col s6 offset-s5">
+					<a class="waves-effect waves-light btn-large modal-trigger" href="#modal2">Sign Up</a>
+				</div>
+			</div>
+		</div>
+	{{/if}} 
+	
+
+
+	<!-- Sign Up Modal -->
+<div id="modal2" class="modal">
+  <h5 class="modal-close">&#10005;</h5>
+  <div class="modal-content center">
+  	<h4>Create Account</h4>
+  	<br>
+
+  	<form id="signup-form" name="signup-form"  action="." method="POST">
+		<div class="row">
+	  		<div class="input-field col s12 m6">
+	          <i class="material-icons prefix">account_circle</i>
+	          <input id="first_name" type="text" class="validate" required>
+	          <label for="first_name">First Name</label>
+	        </div>
+	        <div class="input-field col s12 m6">
+	          <input id="last_name" type="text" class="validate" required>
+	          <label for="last_name">Last Name</label>
+	        </div>
+    	</div>
+
+    	<div class="row">
+	  		<div class="input-field col s12 m6">
+	          <i class="material-icons prefix">plus_one</i>
+	          <input id="age" type="text" class="validate" required>
+	          <label for="age">Age</label>
+	        </div>
+	        <div class="input-field col s12 m6">
+		        <i id="prefix-fix" class="material-icons prefix">wc</i>
+		        <select id="gender" name="gender" required onchange="changeOption()">
+	     			<option value="-1" required disabled selected>Gender</option>
+	      			<option value="0">Male</option>
+	      			<option value="1">Female</option>
+				</select>				
+    			<label for="gender">Select Gender</label>
+	        </div>
+    	</div>
+
+  		<div class="row">
+	  		<div class="input-field col s12">
+	  			<i class="material-icons prefix">person</i>
+	  			<input type="text" id="s-username" required>
+	  			<label for="s-username">Username</label>
+	  		</div>
+  		</div>
+
+  		<div class="row">
+	  		<div class="input-field col s12">
+	  			<i class="material-icons prefix">lock</i>
+	  			<input type="password" id="s-password" required>
+	  			<label for="s-password">Password</label>
+	  		</div>
+  		</div>
+
+  		<div class="row">
+  			<div class="input-field col s12">
+  				<i class="material-icons prefix">create</i>
+	  			<input type="text" id="bio">
+	  			<label for="bio">Bio (Optional)</label>
+  			</div>
+  		</div>
+
+
+  		<div class="left" style="margin-left:20px;">
+  			<label for="check2">
+  				<input type="checkbox" id="check2">
+  			<span>Remember me</span>
+  			</label>
+  		</div>
+  		<br>
+
+  		<input type="submit" value="Sign Up" class="btn">
+  	</form>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/main.js"></script> 
+ 
