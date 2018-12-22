@@ -1,11 +1,15 @@
-    
-{{> headerNoLogo}} 
+{{#if user_id}}
+    {{> headerLogout}}
+{{else}}
+	{{> headerNoLogo}}
+{{/if}}    
+ 
 
 <!-- Logo -->	
-	<div class="container" id="Logo">
+	<div class="container scale-transition" id="Logo">
 	    <div class="row">
 	    	<div class="col s12">
-	     	<img class="logo-graphic" alt="peek-logo" src="images/Peek.svg">
+	     	<img class="logo-graphic" alt="peek-logo" src="images/Peek-logo.svg">
 	    	</div>
 	    </div>
 	    <div class="row">
@@ -17,28 +21,29 @@
 
 
 	<!-- Search Bar -->
-		<div class="container scale-transition" id="searchBar">
-			<div class="row">
-				<div class="col s12">
-					<form action="" autocomplete="off" class="tag-form">
-						<div class="input autocomplete">
-							<label></label>
-							<input id="search-field" type="text" name="searchField">
-						</div>
-						<div class="col s2 pull-s10">
-							<a class="tiny material-icons" href="">close</a>
-						</div>
+		<div class="container" id="searchBar">
+			<div class="search-input">
+				<div class="search-icon"><i class="small material-icons">search</i>
+					<form action="" class="search-form">
+						<input id="search" type="text" placeholder="Search" ="searchField" autocomplete="off">
 					</form>
 				</div>
 			</div>
 		</div>
 
 	<!-- Sign Up Button -->
-		<div class="row">
-			<div class="col s7 offset-s5">
-				<a class="waves-effect waves-light btn-large modal-trigger" href="#modal2">Sign Up</a>
+	{{#if user_id}}
+		
+	{{else}}
+		<div class="container scale-transition">
+			<div class="row">
+				<div class="col s6 offset-s5">
+					<a class="waves-effect waves-light btn-large modal-trigger" href="#modal2">Sign Up</a>
+				</div>
 			</div>
 		</div>
+	{{/if}} 
+	
 
 
 	<!-- Sign Up Modal -->

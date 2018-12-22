@@ -19,7 +19,6 @@ router.get('/comment/:username', function (req, res)
             comments.updated_at \
         FROM socials\
             INNER JOIN comments ON socials.username = comments.username \
-                AND socials.site_id = comments.site_id\
             INNER JOIN users ON socials.user_id = users.user_id\
             WHERE users.username = :username \
             ORDER BY comments.created_at DESC;',

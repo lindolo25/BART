@@ -7,18 +7,35 @@ var router = Express.Router();
 router.get('/', function (req, res)
 {
     // return the homepage
-    res.render('index', {});
+    res.render('index', { user_id: req.user ? req.user.user_id : null });
 });
 
 router.get('/profile', ensureAuthenticated, function (req, res)
 {
-    // get the user information.
+    console.log(req.user.user_id);
 
     // get user's social links.
+    db.socials.findAll({
+        attributes: [
+            'social_id',
+            'site_id',
+            'username',
+        ],
+        where: { user_id: req.user.user_id }
+    }).then(function(dbPost)
+    {
+        var profile = {
+            username: req.user.username,
+            age: req.user.age,
+            bio: req.user.bio,
+            raiting: req.user.rating_avg,
+            img_link: req.user.img_link,
+            socials: dbPost
+        }
+        res.render('profile', profile);
+    });
 
-    // get user related comments.
-
-    res.render('index', {});
+    
 });
 
 router.get('/search/:value/:page?', function (req, res)
