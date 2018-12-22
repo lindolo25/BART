@@ -11,12 +11,14 @@ var LocalStrategy = require('passport-local').Strategy;
 const port = process.env.PORT || 3000;
 
 
+
+
 var app = Express();
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main', partialsDir: ['views/partials/']}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/assets",Express.static("public"));
+app.use("/",Express.static("public"));
 
 // Express Session
 app.use(session({
@@ -46,14 +48,14 @@ app.use('/api', comments);
 
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) 
+/*app.use(function (req, res, next) 
 {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-/*// error handler
+// error handler
 app.use(function (err, req, res, next) 
 {
     if(err)
