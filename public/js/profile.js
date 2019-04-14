@@ -14,7 +14,7 @@ function loadComments()
     .then(printAPIResponse);
 }
 
-function printAPIResponse(response)
+var printAPIResponse = function(response)
 {
     for(var i = 0; i < response.length; i++)
     {
