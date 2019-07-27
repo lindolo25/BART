@@ -6,8 +6,8 @@ var router = Express.Router();
 
 router.get('/', function (req, res)
 {
-    var value = req.param('q') !== undefined ? req.param('q').trim() : null;
-    var Op = db.sequelize.Op;
+    var value = req.query.q ? req.query.q.trim() : null;
+    var Op = db.Sequelize.Op;
 
     if(value)
     {
